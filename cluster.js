@@ -13,7 +13,7 @@ if (cluster.isMaster) {
   cluster.on('death', (worker) => {
     //复制进程到work中
     worker = cluster.fork();
-    workers[worker.pid] = worker;
+    workers[worker.pid] = worker
   });
   //启动进程
   for (let i = 0; i < numCPUs; i++) {
