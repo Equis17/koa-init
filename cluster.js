@@ -12,8 +12,6 @@ if (cluster.isMaster) {
   //进程挂掉重启
   cluster.on('death', (worker) => {
     //复制进程到work中
-    console.log(333)
-    console.log(222)
     console.log(111)
     worker = cluster.fork();
     workers[worker.pid] = worker;
