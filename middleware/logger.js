@@ -1,4 +1,7 @@
+const  cluster = require('cluster');
+
 module.exports = async (ctx, next) => {
+  console.log('worker:', cluster.worker.id, '------', 'PID:', process.pid);
   console.log('START:',' ',ctx.method.toLocaleUpperCase(), ' ', ctx.path);
   const start = new Date();
   await next();

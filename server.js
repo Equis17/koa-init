@@ -1,4 +1,6 @@
 const koa = require('koa');
+const cluster = require('cluster');
+const process = require('process');
 const {
   initRouter,
   initController,
@@ -20,7 +22,7 @@ class Server {
 
   start(port) {
     this.$app.listen(port, () => {
-      console.log('服务器启动成功,端口:', port);
+      console.log('服务器启动成功,端口:', port, ' ', 'worker:', cluster.worker.id, ' ', 'PID:', process.pid);
     });
   }
 }
