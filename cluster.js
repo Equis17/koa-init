@@ -12,7 +12,7 @@ if (cluster.isMaster) {
   //进程挂掉重启
   cluster.on('death', (worker) => {
     //复制进程到work中
-    worker = cluster.fork();
+    worker = cluster.fork()
     workers[worker.pid] = worker
   });
   //启动进程
